@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        @font-face {
+    font-family: 'DS-Digital Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DS-Digital Normal'), url('DS-DIGI.woff') format('woff');
+    }
+        .calculator-body{
+            height : 300 px;
+            width: 250px;
+            background-color:  #666699 ;
+            margin: 20px auto;
+            border-radius: 10px;
+            padding: 20px;
+            padding-top: 40px;
+        }
+        .screen{
+            background-color: #a1af77;
+            text-align: right;
+            width: 220px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            font-size: 45px;
+            padding: 10px 5px;
+            padding-bottom :10px; 
+            font-family: "DS-Digital Normal";
+        }
+        .buttons-container{
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn{
+            width: 50px;
+            text-align: center;
+            padding: 2px 0;
+            font-size: 20px;
+            margin: 3px;
+            border: 0.5px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-equals{
+            background-color: rgb(208, 40, 40);
+            height: 70px;
+            color: white;
+        }
+        .btn:hover{
+            box-shadow: 0 0 5px 0 whitesmoke;
+            transition:0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-body">
+        <input type="text" value="0" class="screen" id="input-screen"/>
+        <div class="buttons-container">
+            <button class="btn" onclick="clearScreen()">AC</button>
+            <button class="btn" onclick="handleButtonClick('7')">7</button>
+            <button class="btn" onclick="handleButtonClick('4')">4</button>
+            <button class="btn" onclick="handleButtonClick('1')">1</button>
+            <button class="btn" onclick="handleButtonClick('0')">0</button>
+
+            <button class="btn" onclick="handleButtonClick('M+')">M+</button>
+            <button class="btn" onclick="handleButtonClick('8')">8</button>
+            <button class="btn" onclick="handleButtonClick('2')">2</button>
+            <button class="btn" onclick="handleButtonClick('5')">5</button>
+            <button class="btn" onclick="handleButtonClick('.')">.</button>
+
+            <button class="btn" onclick="handleButtonClick('/')">/</button>
+            <button class="btn" onclick="handleButtonClick('9')">9</button>
+            <button class="btn" onclick="handleButtonClick('6')">6</button>
+            <button class="btn" onclick="handleButtonClick('3')">3</button>
+            <button class="btn" onclick="handleButtonClick('%')">%</button>
+
+            <button class="btn" onclick="handleButtonClick('*')">x</button>
+            <button class="btn" onclick="handleButtonClick('-')">-</button>
+            <button class="btn" onclick="handleButtonClick('+')">+</button>
+            <button class="btn btn-equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        function calculate() {
+        const inputScreen = document.getElementById("input-screen");
+        inputScreen.value = eval(inputScreen.value);
+      }
+
+      function handleButtonClick(val) {
+        const inputScreen = document.getElementById("input-screen");
+        inputScreen.value += val;
+      }
+
+      function clearScreen() {
+        const inputScreen = document.getElementById("input-screen");
+        inputScreen.value = "";
+      }
+    </script>
+    
+</body>
+</html>
